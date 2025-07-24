@@ -38,7 +38,7 @@ export function ProjectsSection() {
         'Jest',
       ],
       github: 'https://github.com/Raqui333/finance',
-      demo: '#',
+      demo: 'https://financedemo-pi.vercel.app',
     },
     {
       title: 'E-Ticket Platform',
@@ -189,10 +189,12 @@ export function ProjectsSection() {
                       whileHover={{ scale: 1.05 }}
                       whileTap={{ scale: 0.95 }}
                     >
-                      <Button size="sm" className="w-full">
-                        <ExternalLink className="h-4 w-4 mr-2" />
-                        Demo
-                      </Button>
+                      <a href={project.demo} target="_blank">
+                        <Button size="sm" className="w-full">
+                          <ExternalLink className="h-4 w-4 mr-2" />
+                          Demo
+                        </Button>
+                      </a>
                     </motion.div>
                   </div>
                 </CardContent>
