@@ -49,7 +49,7 @@ export function Footer() {
 
         <div className="border-t border-slate-800 mt-8 pt-8 text-center">
           <p className="text-slate-400 flex items-center justify-center text-sm">
-            Copyright © 2025 Kleber Silva
+            Copyright © 2025 Kleber Silva - Todos os direitos reservados
           </p>
         </div>
       </div>

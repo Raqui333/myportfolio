@@ -4,18 +4,16 @@ import { Inter } from 'next/font/google';
 import './globals.css';
 import { ThemeProvider } from '@/components/theme-provider';
 import { NextIntlClientProvider } from 'next-intl';
-import { getLocale } from 'next-intl/server';
 
 const inter = Inter({ subsets: ['latin'] });
 
 export const metadata: Metadata = {
   title: {
-    default:
-      'Kleber Silva - Desenvolvedor Full Stack | Node.js | Typescript | Nest.js | PostgreSQL | Next.js | Docker | AWS',
+    default: 'Kleber Silva - Desenvolvedor Full Stack',
     template: '%s | Kleber Silva - Desenvolvedor Full Stack',
   },
   description:
-    'Desenvolvedor Full Stack especializado em React, Next.js, Node.js, NestJS, Docker, PostegreSQL e AWS. Criando soluções modernas e escaláveis com mais de 5 anos de experiência.',
+    'Desenvolvedor Full Stack especializado em React, Next.js, Node.js, NestJS, Docker, PostegreSQL e AWS.',
   keywords: [
     'desenvolvedor full stack',
     'full stack developer',
@@ -101,7 +99,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="pt-BR" suppressHydrationWarning>
+    <html lang="en" suppressHydrationWarning>
       <head>
         <link rel="icon" href="/favicon.ico" sizes="any" />
         <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
