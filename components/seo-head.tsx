@@ -9,7 +9,7 @@ interface SEOHeadProps {
 
 export function SEOHead({
   title = 'Kleber Silva - Desenvolvedor Full Stack',
-  description = 'Desenvolvedor Full Stack especializado em React, Next.js, Node.js, NestJS, PostegreSQL, Docker e AWS. Criando soluções web modernas e escaláveis.',
+  description = 'Desenvolvedor Full Stack especializado em React, Next.js, Node.js, NestJS, PostegreSQL, Docker e AWS.',
   canonical = 'https://klebersilva.vercel.app',
   ogImage = '/og-image.jpg',
 }: SEOHeadProps) {
@@ -82,7 +82,7 @@ export function SEOHead({
       <link
         rel="alternate"
         hrefLang="en"
-        href="https://klebersilva.vercel.app/en"
+        href="https://klebersilva.vercel.app"
       />
       <link
         rel="alternate"
