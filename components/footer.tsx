@@ -1,7 +1,10 @@
 import { Github, Linkedin, Mail, Heart } from 'lucide-react';
 import { Button } from '@/components/ui/button';
+import { useTranslations } from 'next-intl';
 
 export function Footer() {
+  const t = useTranslations('FooterSection');
+
   return (
     <footer className="bg-slate-900 dark:bg-slate-950 text-white py-12">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
@@ -10,7 +13,7 @@ export function Footer() {
             <h3 className="text-2xl font-bold bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent">
               Portfolio
             </h3>
-            <p className="text-slate-400 mt-2">Desenvolvedor Full Stack</p>
+            <p className="text-slate-400 mt-2">{t('title')}</p>
           </div>
 
           <div className="flex space-x-4">

@@ -1,0 +1,47 @@
+{
+  "HeaderSection": {
+    "menu": ["home", "about", "skills", "projects", "contact"]
+  },
+  "HeroSection": {
+    "greeting": "Hello, I'm",
+    "description": "Full Stack Developer passionate about creating amazing digital experiences",
+    "projects": "See Projects",
+    "contact": "Get in Touch"
+  },
+  "AboutSection": {
+    "title": "About",
+    "tagline": "Full Stack Developer focused on building robust, secure, and scalable solutions.",
+    "firstParagraph": "My name is Kleber, I'm a full stack developer with over 5 years of experience. I'm proficient in the Node.js ecosystem, working with React, Next.js, NestJS, PostgreSQL, Docker, and AWS, always focused on performance, scalability, and security. My goal is to turn complex ideas into real, functional, and impactful solutions.",
+    "secondParagraph": "I’ve worked on client projects, always focused on results and clear communication with the team. I have an analytical mindset, take a proactive approach to problem-solving, and consistently strive to deliver clean, scalable code with a strong focus on the product.",
+    "interests": "Interests"
+  },
+  "SkillsSection": {
+    "title": "Skills",
+    "subtitle": "Technologies and tools I master to build complete solutions"
+  },
+  "ProjectsSection": {
+    "title": "Featured Projects",
+    "subtitle": "Some of the projects I've developed",
+    "financeDashboardDescription": "Financial asset dashboard with interactive visualizations and real-time reporting.",
+    "eTicketPlataformDescription": "A web-based e-ticket platform for generating, managing, and verifying digital tickets.",
+    "codeText": "Code"
+  },
+  "ContactSection": {
+    "title": "Get in Touch",
+    "subtitle": "Let's talk about your next project",
+    "cta": "Let's work together",
+    "phone": "Phone",
+    "address": "Location",
+    "country": "Brazil",
+    "paragraph": "I'm always open to discussing new projects, creative opportunities, or partnerships. Reach out and let's create something amazing together!",
+    "formTitle": "Send a Message",
+    "formDescription": "Fill out the form below and I'll get back to you soon",
+    "formNameInput": "Your name",
+    "formEmailInput": "Your email",
+    "formMessageInput": "Your message",
+    "formSubmit": "Send Message"
+  },
+  "FooterSection": {
+    "title": "Full Stack Developer"
+  }
+}

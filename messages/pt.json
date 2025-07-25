@@ -1,0 +1,47 @@
+{
+  "HeaderSection": {
+    "menu": ["inicio", "sobre", "habilidades", "projetos", "contato"]
+  },
+  "HeroSection": {
+    "greeting": "Olá, eu sou",
+    "description": "Desenvolvedor Full Stack apaixonado por criar experiências digitais incríveis",
+    "projects": "Ver Projetos",
+    "contact": "Entre em Contato"
+  },
+  "AboutSection": {
+    "title": "Sobre Mim",
+    "tagline": "Desenvolvedor Full Stack focado em criar soluções robustas, seguras e escaláveis.",
+    "firstParagraph": "Me chamo Kleber, sou desenvolvedor fullstack com mais de 5 anos de experiência. Domino o ecossistema Node.js, com React, Next.js, NestJS, PostgreSQL, Docker e AWS, com foco na performance, escalabilidade e segurança. Meu propósito é transformar ideias complexas em soluções reais, funcionais e impactantes.",
+    "secondParagraph": "Já trabalhei com projetos para clientes, sempre com foco em resultado e boa comunicação com o time. Tenho um perfil analítico, sou proativo na resolução de problemas e sempre busco entregar código limpo, escalável e com foco no produto.",
+    "interests": "Interesses"
+  },
+  "SkillsSection": {
+    "title": "Habilidades Técnicas",
+    "subtitle": "Tecnologias e ferramentas que domino para criar soluções completas"
+  },
+  "ProjectsSection": {
+    "title": "Projetos em Destaque",
+    "subtitle": "Alguns dos projetos que desenvolvi",
+    "financeDashboardDescription": "Dashboard de assets financeiros com visualizações interativas e relatórios em tempo real.",
+    "eTicketPlataformDescription": "Uma plataforma web de e-ticket para gerar, gerenciar e verificar ingressos digitais.",
+    "codeText": "Código"
+  },
+  "ContactSection": {
+    "title": "Entre em Contato",
+    "subtitle": "Vamos conversar sobre seu próximo projeto",
+    "cta": "Vamos trabalhar juntos",
+    "phone": "Telefone",
+    "address": "Localização",
+    "country": "Brasil",
+    "paragraph": "Estou sempre aberto a discutir novos projetos, oportunidades criativas ou parcerias. Entre em contato e vamos criar algo incrível juntos!",
+    "formTitle": "Envie uma mensagem",
+    "formDescription": "Preencha o formulário abaixo e entrarei em contato em breve",
+    "formNameInput": "Seu nome",
+    "formEmailInput": "Seu email",
+    "formMessageInput": "Sua mensagem",
+    "formSubmit": "Enviar Mensagem"
+  },
+  "FooterSection": {
+    "title": "Desenvolvedor Full Stack"
+  }
+}

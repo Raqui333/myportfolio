@@ -3,9 +3,12 @@
 import { Progress } from '@/components/ui/progress';
 import { motion, Variants } from 'framer-motion';
 import { useInView } from 'framer-motion';
+import { useTranslations } from 'next-intl';
 import { useRef, useEffect, useState } from 'react';
 
 export function SkillsSection() {
+  const t = useTranslations('SkillsSection');
+
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: '-100px' });
   const [animatedValues, setAnimatedValues] = useState<number[]>([]);
@@ -67,10 +70,10 @@ export function SkillsSection() {
           transition={{ duration: 0.8 }}
         >
           <h2 className="text-3xl sm:text-4xl font-bold text-slate-900 dark:text-white mb-4">
-            Habilidades Técnicas
+            {t('title')}
           </h2>
           <p className="text-lg text-slate-600 dark:text-slate-300 max-w-3xl mx-auto">
-            Tecnologias e ferramentas que domino para criar soluções completas
+            {t('subtitle')}
           </p>
         </motion.div>
 
