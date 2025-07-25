@@ -1,7 +1,7 @@
 {
   "name": "Kleber Silva - Desenvolvedor Full Stack",
   "short_name": "Kleber Silva",
-  "description": "Portfólio de Kleber Silva, desenvolvedor full stack especializado em React, Next.js, Node.js, NestJS, PostgreSQL e AWS",
+  "description": "Portfólio de Kleber Silva, desenvolvedor full stack especializado em React, Next.js, Node.js, NestJS, Docker, PostgreSQL e AWS",
   "start_url": "/",
   "display": "standalone",
   "background_color": "#ffffff",
@@ -21,6 +21,5 @@
       "purpose": "maskable"
     }
   ],
-  "categories": ["portfolio", "developer", "technology"],
-  "lang": "pt-BR"
+  "categories": ["portfolio", "developer", "technology"]
 }
