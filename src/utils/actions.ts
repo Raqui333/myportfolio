@@ -9,5 +9,5 @@ export async function setLocale(locale: Locale) {
 
 export async function getLocale(): Promise<Locale> {
   const currentCookies = await cookies();
-  return (currentCookies.get('locale')?.value || 'pt') as Locale;
+  return (currentCookies.get('locale')?.value || 'en') as Locale;
 }
