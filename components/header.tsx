@@ -2,13 +2,25 @@
 
 import { useState, useEffect } from 'react';
 import { Button } from '@/components/ui/button';
-import { Moon, Sun, Menu, X } from 'lucide-react';
+import { Moon, Sun, Menu, X, Globe } from 'lucide-react';
 import { useTheme } from 'next-themes';
+import { setLocale, getLocale } from '@/utils/actions';
+import { useTranslations } from 'next-intl';
 
 export function Header() {
+  const t = useTranslations('HeaderSection');
+  const menuItems: string[] = t.raw('menu');
+
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [locale, setLocaleState] = useState<Locale>('en');
   const { theme, setTheme } = useTheme();
+
+  useEffect(() => {
+    getLocale().then((res) => {
+      setLocaleState(res);
+    });
+  }, []);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -24,6 +36,12 @@ export function Header() {
       element.scrollIntoView({ behavior: 'smooth' });
       setIsMobileMenuOpen(false);
     }
+  };
+
+  const handleLocale = async () => {
+    const nextLocale = locale === 'pt' ? 'en' : 'pt';
+    await setLocale(nextLocale);
+    setLocaleState(nextLocale);
   };
 
   return (
@@ -44,20 +62,27 @@ export function Header() {
 
           {/* Desktop Navigation */}
           <nav className="hidden md:flex space-x-8">
-            {['inicio', 'sobre', 'habilidades', 'projetos', 'contato'].map(
-              (item) => (
-                <button
-                  key={item}
-                  onClick={() => scrollToSection(item)}
-                  className="text-slate-700 dark:text-slate-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors duration-200 capitalize"
-                >
-                  {item}
-                </button>
-              )
-            )}
+            {menuItems.map((item) => (
+              <button
+                key={item}
+                onClick={() => scrollToSection(item)}
+                className="text-slate-700 dark:text-slate-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors duration-200 capitalize"
+              >
+                {item}
+              </button>
+            ))}
           </nav>
 
           <div className="hidden md:flex items-center space-x-4">
+            <Button
+              className="px-8"
+              variant="ghost"
+              size="icon"
+              onClick={handleLocale}
+            >
+              <Globe className="h-5 w-5" />
+              <span>{locale === 'pt' ? 'PT' : 'EN'}</span>
+            </Button>
             <Button
               variant="ghost"
               size="icon"
@@ -70,6 +95,15 @@ export function Header() {
 
           {/* Mobile menu button */}
           <div className="md:hidden flex items-center space-x-2">
+            <Button
+              className="px-8"
+              variant="ghost"
+              size="icon"
+              onClick={handleLocale}
+            >
+              <Globe className="h-5 w-5" />
+              <span>{locale === 'pt' ? 'PT' : 'EN'}</span>
+            </Button>
             <Button
               variant="ghost"
               size="icon"

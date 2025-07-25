@@ -16,8 +16,11 @@ import { Mail, MapPin, Phone } from 'lucide-react';
 import { motion, Variants } from 'framer-motion';
 import { useInView } from 'framer-motion';
 import { useRef } from 'react';
+import { useTranslations } from 'next-intl';
 
 export function ContactSection() {
+  const t = useTranslations('ContactSection');
+
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: '-100px' });
 
@@ -74,15 +77,15 @@ export function ContactSection() {
     },
     {
       icon: Phone,
-      title: 'Telefone',
+      title: t('phone'),
       info: '+55 (84) 9 8627-7327',
       color:
         'bg-green-100 dark:bg-green-900 text-green-600 dark:text-green-400',
     },
     {
       icon: MapPin,
-      title: 'Localização',
-      info: 'Natal/RN, Brasil',
+      title: t('address'),
+      info: `Natal/RN, ${t('country')}`,
       color:
         'bg-purple-100 dark:bg-purple-900 text-purple-600 dark:text-purple-400',
     },
@@ -102,10 +105,10 @@ export function ContactSection() {
           transition={{ duration: 0.8 }}
         >
           <h2 className="text-3xl sm:text-4xl font-bold text-slate-900 dark:text-white mb-4">
-            Entre em Contato
+            {t('title')}
           </h2>
           <p className="text-lg text-slate-600 dark:text-slate-300 max-w-3xl mx-auto">
-            Vamos conversar sobre seu próximo projeto
+            {t('subtitle')}
           </p>
         </motion.div>
 
@@ -118,12 +121,10 @@ export function ContactSection() {
           >
             <motion.div variants={itemVariants}>
               <h3 className="text-2xl font-semibold text-slate-900 dark:text-white mb-4">
-                Vamos trabalhar juntos
+                {t('cta')}
               </h3>
               <p className="text-slate-600 dark:text-slate-300 mb-8">
-                Estou sempre aberto a discutir novos projetos, oportunidades
-                criativas ou parcerias. Entre em contato e vamos criar algo
-                incrível juntos!
+                {t('paragraph')}
               </p>
             </motion.div>
 
@@ -165,10 +166,8 @@ export function ContactSection() {
             >
               <Card>
                 <CardHeader>
-                  <CardTitle>Envie uma mensagem</CardTitle>
-                  <CardDescription>
-                    Preencha o formulário abaixo e entrarei em contato em breve
-                  </CardDescription>
+                  <CardTitle>{t('formTitle')}</CardTitle>
+                  <CardDescription>{t('formDescription')}</CardDescription>
                 </CardHeader>
                 <CardContent>
                   <form onSubmit={handleSubmit} className="space-y-4">
@@ -181,7 +180,7 @@ export function ContactSection() {
                     >
                       <Input
                         name="name"
-                        placeholder="Seu nome"
+                        placeholder={t('formNameInput')}
                         value={formData.name}
                         onChange={handleChange}
                         required
@@ -197,7 +196,7 @@ export function ContactSection() {
                       <Input
                         name="email"
                         type="email"
-                        placeholder="Seu email"
+                        placeholder={t('formEmailInput')}
                         value={formData.email}
                         onChange={handleChange}
                         required
@@ -212,7 +211,7 @@ export function ContactSection() {
                     >
                       <Textarea
                         name="message"
-                        placeholder="Sua mensagem"
+                        placeholder={t('formMessageInput')}
                         rows={5}
                         value={formData.message}
                         onChange={handleChange}
@@ -229,7 +228,7 @@ export function ContactSection() {
                       whileTap={{ scale: 0.98 }}
                     >
                       <Button type="submit" className="w-full">
-                        Enviar Mensagem
+                        {t('formSubmit')}
                       </Button>
                     </motion.div>
                   </form>

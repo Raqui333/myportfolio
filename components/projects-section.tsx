@@ -14,16 +14,18 @@ import Image from 'next/image';
 import { motion, Variants } from 'framer-motion';
 import { useInView } from 'framer-motion';
 import { useRef } from 'react';
+import { useTranslations } from 'next-intl';
 
 export function ProjectsSection() {
+  const t = useTranslations('ProjectsSection');
+
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: '-100px' });
 
   const projects = [
     {
       title: 'Finance Dashboard',
-      description:
-        'Dashboard de assets financeiros com visualizações interativas e relatórios em tempo real.',
+      description: t('financeDashboardDescription'),
       image: '/financedashboardscreenshot.png',
       technologies: [
         'Typescript',
@@ -38,12 +40,11 @@ export function ProjectsSection() {
         'Jest',
       ],
       github: 'https://github.com/Raqui333/finance',
-      demo: '#',
+      demo: 'https://financedemo-pi.vercel.app',
     },
     {
       title: 'E-Ticket Platform',
-      description:
-        'Uma plataforma web de e-ticket para gerar, gerenciar e verificar ingressos digitais.',
+      description: t('eTicketPlataformDescription'),
       image: '/eticketscreenshot.png',
       technologies: [
         'Typescript',
@@ -99,10 +100,10 @@ export function ProjectsSection() {
           transition={{ duration: 0.8 }}
         >
           <h2 className="text-3xl sm:text-4xl font-bold text-slate-900 dark:text-white mb-4">
-            Projetos em Destaque
+            {t('title')}
           </h2>
           <p className="text-lg text-slate-600 dark:text-slate-300 max-w-3xl mx-auto">
-            Alguns dos projetos que desenvolvi
+            {t('subtitle')}
           </p>
         </motion.div>
 
@@ -180,7 +181,7 @@ export function ProjectsSection() {
                           className="w-full bg-transparent"
                         >
                           <Github className="h-4 w-4 mr-2" />
-                          Código
+                          {t('codeText')}
                         </Button>
                       </a>
                     </motion.div>
@@ -189,10 +190,12 @@ export function ProjectsSection() {
                       whileHover={{ scale: 1.05 }}
                       whileTap={{ scale: 0.95 }}
                     >
-                      <Button size="sm" className="w-full">
-                        <ExternalLink className="h-4 w-4 mr-2" />
-                        Demo
-                      </Button>
+                      <a href={project.demo} target="_blank">
+                        <Button size="sm" className="w-full">
+                          <ExternalLink className="h-4 w-4 mr-2" />
+                          Demo
+                        </Button>
+                      </a>
                     </motion.div>
                   </div>
                 </CardContent>

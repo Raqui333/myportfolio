@@ -5,8 +5,11 @@ import { Code, Database, Globe, Brain } from 'lucide-react';
 import { motion, Variants } from 'framer-motion';
 import { useInView } from 'framer-motion';
 import { useRef } from 'react';
+import { useTranslations } from 'next-intl';
 
 export function AboutSection() {
+  const t = useTranslations('AboutSection');
+
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: '-100px' });
 
@@ -58,14 +61,13 @@ export function AboutSection() {
             className="text-3xl sm:text-4xl font-bold text-slate-900 dark:text-white mb-4"
             variants={itemVariants}
           >
-            Sobre Mim
+            {t('title')}
           </motion.h2>
           <motion.p
             className="text-lg text-slate-600 dark:text-slate-300 max-w-3xl mx-auto"
             variants={itemVariants}
           >
-            Desenvolvedor Full Stack focado em criar soluções robustas, seguras
-            e escaláveis.
+            {t('tagline')}
           </motion.p>
         </motion.div>
 
@@ -80,20 +82,13 @@ export function AboutSection() {
               className="text-slate-700 dark:text-slate-300 leading-relaxed"
               variants={itemVariants}
             >
-              Me chamo Kleber, sou desenvolvedor fullstack com mais de 5 anos de
-              experiência. Domino o ecossistema Node.js, com React, Next.js,
-              NestJS, PostgreSQL, Docker e AWS, com foco na performance,
-              escalabilidade e segurança. Meu propósito é transformar ideias
-              complexas em soluções reais, funcionais e impactantes.
+              {t('firstParagraph')}
             </motion.p>
             <motion.p
               className="text-slate-700 dark:text-slate-300 leading-relaxed"
               variants={itemVariants}
             >
-              Já trabalhei com projetos para clientes, sempre com foco em
-              resultado e boa comunicação com o time. Tenho um perfil analítico,
-              sou proativo na resolução de problemas e sempre busco entregar
-              código limpo, escalável e com foco no produto.
+              {t('secondParagraph')}
             </motion.p>
             <motion.div
               className="flex flex-wrap gap-2"
@@ -169,8 +164,8 @@ export function AboutSection() {
               },
               {
                 icon: Brain,
-                title: 'Interesses',
-                desc: 'Kubernetes, Microserviços, Golang',
+                title: t('interests'),
+                desc: 'Kubernetes, Microservices, Golang',
                 color: 'text-orange-600',
               },
             ].map(({ icon: Icon, title, desc, color }, index) => (

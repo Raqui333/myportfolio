@@ -3,8 +3,11 @@
 import { Button } from '@/components/ui/button';
 import { ArrowDown, Github, Linkedin, Mail } from 'lucide-react';
 import { motion, Variants } from 'framer-motion';
+import { useTranslations } from 'next-intl';
 
 export function HeroSection() {
+  const t = useTranslations('HeroSection');
+
   const scrollToSection = (sectionId: string) => {
     const element = document.getElementById(sectionId);
     if (element) {
@@ -64,29 +67,23 @@ export function HeroSection() {
               className="text-4xl sm:text-6xl lg:text-7xl font-bold"
               variants={itemVariants}
             >
-              <motion.span
+              <motion.div
                 className="block text-slate-900 dark:text-white"
                 initial={{ x: -100, opacity: 0 }}
                 animate={{ x: 0, opacity: 1 }}
                 transition={{ duration: 0.8, delay: 0.2 }}
               >
-                Olá, eu sou
-              </motion.span>
-              <motion.span
-                className="block bg-gradient-to-r from-blue-600 via-purple-600 to-teal-600 bg-clip-text text-transparent"
-                initial={{ x: 100, opacity: 0 }}
-                animate={{ x: 0, opacity: 1 }}
-                transition={{ duration: 0.8, delay: 0.4 }}
-              >
-                Kleber Silva
-              </motion.span>
+                {t('greeting')}{' '}
+                <span className="bg-gradient-to-r from-blue-600 via-purple-600 to-blue-600 bg-clip-text text-transparent">
+                  Kleber
+                </span>
+              </motion.div>
             </motion.h1>
             <motion.p
               className="text-xl sm:text-2xl text-slate-600 dark:text-slate-300 max-w-3xl mx-auto"
               variants={itemVariants}
             >
-              Desenvolvedor Full Stack apaixonado por criar experiências
-              digitais incríveis
+              {t('description')}
             </motion.p>
           </motion.div>
 
@@ -100,7 +97,7 @@ export function HeroSection() {
                 className="bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700"
                 onClick={() => scrollToSection('projetos')}
               >
-                Ver Projetos
+                {t('projects')}
               </Button>
             </motion.div>
             <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
@@ -109,7 +106,7 @@ export function HeroSection() {
                 size="lg"
                 onClick={() => scrollToSection('contato')}
               >
-                Entre em Contato
+                {t('contact')}
               </Button>
             </motion.div>
           </motion.div>
