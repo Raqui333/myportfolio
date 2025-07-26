@@ -39,7 +39,9 @@
     "formNameInput": "Your name",
     "formEmailInput": "Your email",
     "formMessageInput": "Your message",
-    "formSubmit": "Send Message"
+    "formSubmit": "Send Message",
+    "errorReCaptcha": "Please complete the reCAPTCHA",
+    "errorSending": "Failed to send message"
   },
   "FooterSection": {
     "title": "Full Stack Developer",

@@ -12,17 +12,25 @@ import {
 } from '@/components/ui/card';
 import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
-import { Mail, MapPin, Phone } from 'lucide-react';
+import { LoaderCircleIcon, Mail, MapPin, Phone } from 'lucide-react';
 import { motion, Variants } from 'framer-motion';
 import { useInView } from 'framer-motion';
 import { useRef } from 'react';
 import { useTranslations } from 'next-intl';
+import { toast } from '@/hooks/use-toast';
+import ReCAPTCHA from 'react-google-recaptcha';
+
+const SITE_KEY = process.env.NEXT_PUBLIC_SITE_KEY;
 
 export function ContactSection() {
   const t = useTranslations('ContactSection');
 
   const ref = useRef(null);
+  const recaptchaRef = useRef<ReCAPTCHA>(null);
+
   const isInView = useInView(ref, { once: true, margin: '-100px' });
+  const [errorMessage, setErrorMessage] = useState<string | null>(null);
+  const [loading, setLoading] = useState(false);
 
   const [formData, setFormData] = useState({
     name: '',
@@ -30,10 +38,37 @@ export function ContactSection() {
     message: '',
   });
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    console.log('Form submitted:', formData);
+
+    setLoading(true);
+
+    try {
+      const token = recaptchaRef.current?.getValue();
+
+      if (!token) {
+        setErrorMessage(t('errorReCaptcha'));
+        setLoading(false);
+        return;
+      }
+
+      await fetch('/api/contact', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ ...formData, token }),
+      });
+    } catch (error) {
+      setErrorMessage(t('errorSending'));
+      setLoading(false);
+    }
+
     setFormData({ name: '', email: '', message: '' });
+    setErrorMessage(null);
+    recaptchaRef.current?.reset();
+
+    setLoading(false);
   };
 
   const handleChange = (
@@ -227,10 +262,29 @@ export function ContactSection() {
                       whileHover={{ scale: 1.02 }}
                       whileTap={{ scale: 0.98 }}
                     >
-                      <Button type="submit" className="w-full">
-                        {t('formSubmit')}
+                      <Button
+                        type="submit"
+                        className="w-full"
+                        disabled={loading}
+                      >
+                        {loading ? (
+                          <LoaderCircleIcon className="animate-spin" />
+                        ) : (
+                          <span>{t('formSubmit')}</span>
+                        )}
                       </Button>
                     </motion.div>
+                    <div className="flex flex-col mt-4 justify-center items-center">
+                      <ReCAPTCHA
+                        sitekey={SITE_KEY as string}
+                        ref={recaptchaRef}
+                      />
+                      {errorMessage && (
+                        <p className="text-red-500 text-sm mt-2">
+                          {errorMessage}
+                        </p>
+                      )}
+                    </div>
                   </form>
                 </CardContent>
               </Card>
