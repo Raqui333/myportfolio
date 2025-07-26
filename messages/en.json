@@ -42,6 +42,7 @@
     "formSubmit": "Send Message"
   },
   "FooterSection": {
-    "title": "Full Stack Developer"
+    "title": "Full Stack Developer",
+    "copyright": "All rights reserved."
   }
 }

@@ -59,7 +59,7 @@ export function ProjectsSection() {
         'Serverless Backend',
       ],
       github: 'https://github.com/Raqui333/eticketplataform',
-      demo: '#',
+      demo: 'https://eticketplataform-demo.netlify.app',
     },
   ];
 

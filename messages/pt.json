@@ -42,6 +42,7 @@
     "formSubmit": "Enviar Mensagem"
   },
   "FooterSection": {
-    "title": "Desenvolvedor Full Stack"
+    "title": "Desenvolvedor Full Stack",
+    "copyright": "Todos os direitos reservados."
   }
 }
