@@ -8,6 +8,13 @@ const SECRET_KEY = process.env.SECRET_KEY;
 export async function POST(request: NextRequest) {
   const body = await request.json();
 
+  if (body.message.length > 2000) {
+    return new NextResponse('Message too long', {
+      status: 400,
+      headers: { 'Content-Type': 'application/json' },
+    });
+  }
+
   try {
     const response = await fetch(RECAPATCHA_URL, {
       method: 'POST',

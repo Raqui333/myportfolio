@@ -248,6 +248,7 @@ export function ContactSection() {
                         name="message"
                         placeholder={t('formMessageInput')}
                         rows={5}
+                        maxLength={2000}
                         value={formData.message}
                         onChange={handleChange}
                         required
