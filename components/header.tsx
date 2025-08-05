@@ -7,6 +7,14 @@ import { useTheme } from 'next-themes';
 import { setLocale, getLocale } from '@/utils/actions';
 import { useTranslations } from 'next-intl';
 
+const sectionMap: Record<string, string> = {
+  home: 'inicio',
+  about: 'sobre',
+  skills: 'habilidades',
+  projects: 'projetos',
+  contact: 'contato',
+};
+
 export function Header() {
   const t = useTranslations('HeaderSection');
   const menuItems: string[] = t.raw('menu');
@@ -31,7 +39,8 @@ export function Header() {
   }, []);
 
   const scrollToSection = (sectionId: string) => {
-    const element = document.getElementById(sectionId);
+    const localizedId = sectionMap[sectionId] || sectionId;
+    const element = document.getElementById(localizedId);
     if (element) {
       element.scrollIntoView({ behavior: 'smooth' });
       setIsMobileMenuOpen(false);
@@ -130,17 +139,15 @@ export function Header() {
         {isMobileMenuOpen && (
           <div className="md:hidden bg-white dark:bg-slate-900 border-t border-slate-200 dark:border-slate-700">
             <div className="px-2 pt-2 pb-3 space-y-1">
-              {['inicio', 'sobre', 'habilidades', 'projetos', 'contato'].map(
-                (item) => (
-                  <button
-                    key={item}
-                    onClick={() => scrollToSection(item)}
-                    className="block w-full text-left px-3 py-2 text-slate-700 dark:text-slate-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors duration-200 capitalize"
-                  >
-                    {item}
-                  </button>
-                )
-              )}
+              {menuItems.map((item) => (
+                <button
+                  key={item}
+                  onClick={() => scrollToSection(item)}
+                  className="block w-full text-left px-3 py-2 text-slate-700 dark:text-slate-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors duration-200 capitalize"
+                >
+                  {item}
+                </button>
+              ))}
             </div>
           </div>
         )}
