@@ -111,13 +111,6 @@ export function ContactSection() {
       color: 'bg-blue-100 dark:bg-blue-900 text-blue-600 dark:text-blue-400',
     },
     {
-      icon: Phone,
-      title: t('phone'),
-      info: '+55 (84) 9 8627-7327',
-      color:
-        'bg-green-100 dark:bg-green-900 text-green-600 dark:text-green-400',
-    },
-    {
       icon: MapPin,
       title: t('address'),
       info: `Natal/RN, ${t('country')}`,
